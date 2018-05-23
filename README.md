@@ -1,6 +1,6 @@
-| Build Status                             | Latest Release                                      | Version                                             | Last Commit                                                     | Activity                                                      | CTAN                         |
-| :--------------------------------------: | :--------------------------:                        | :----:                                              | :------:                                                        | :------:                                                      | :----:                       |
-| [![Travis][travis_shield]][travis]       | [![Github Release][release_shield]][github_release] | [![Github Version][version_shield]][github_version] | [![Github Last Commit][last_commit_shield]][github_last_commit] | [![Github commit activity][activity_shield]][github_activity] | [![CTAN][ctan_shield]][ctan] |
+| Build Status                             | Latest Release                                      | Version                                             | Last Commit                                                     | Activity                                                      
+| :--------------------------------------: | :--------------------------:                        | :----:                                              | :------:                                                        | :------:                                                      
+| [![Travis][travis_shield]][travis]       | [![Github Release][release_shield]][github_release] | [![Github Version][version_shield]][github_version] | [![Github Last Commit][last_commit_shield]][github_last_commit] | [![Github commit activity][activity_shield]][github_activity] 
 
 [travis_shield]: https://travis-ci.org/skulumani/fdcl-hdf5.svg?branch=master 
 [release_shield]: https://img.shields.io/github/release/skulumani/fdcl-hdf5.svg
