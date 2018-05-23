@@ -1,3 +1,18 @@
+| Build Status                             | Latest Release                                      | Version                                             | Last Commit                                                     | Activity                                                      | CTAN                         |
+| :--------------------------------------: | :--------------------------:                        | :----:                                              | :------:                                                        | :------:                                                      | :----:                       |
+| [![Travis][travis_shield]][travis]       | [![Github Release][release_shield]][github_release] | [![Github Version][version_shield]][github_version] | [![Github Last Commit][last_commit_shield]][github_last_commit] | [![Github commit activity][activity_shield]][github_activity] | [![CTAN][ctan_shield]][ctan] |
+
+[travis_shield]: https://travis-ci.org/skulumani/fdcl-hdf5.svg?branch=master 
+[release_shield]: https://img.shields.io/github/release/skulumani/fdcl-hdf5.svg
+[version_shield]: https://badge.fury.io/gh/skulumani%2Ffdcl-hdf5.svg
+[last_commit_shield]: https://img.shields.io/github/last-commit/skulumani/fdcl-hdf5.svg
+[activity_shield]: https://img.shields.io/github/commit-activity/y/skulumani/fdcl-hdf5.svg
+
+[travis]: https://travis-ci.org/skulumani/fdcl-hdf5
+[github_release]: https://github.com/skulumani/fdcl-hdf5/releases/latest
+[github_version]: https://github.com/skulumani/fdcl-hdf5/releases/latest
+[github_last_commit]: https://github.com/skulumani/fdcl-hdf5/commits/master
+[github_activity]: https://github.com/skulumani/fdcl-hdf5/graphs/commit-activity
 ## FDCL-HDF5
 
 This is a wrapper library for interfacing [Eigen]() datatypes with the [HDF5](https://support.hdfgroup.org/HDF5/) file format.
