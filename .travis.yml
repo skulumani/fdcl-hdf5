@@ -8,4 +8,5 @@ install:
     - hash -r
 script:
     - cmake --version
+    - which h5dump
 after_success:

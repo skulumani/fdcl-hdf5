@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.9)
 project( fdcl_hdf5 VERSION 0.1 DESCRIPTION "FDCL HDF5 Library")
 
 enable_language(CXX)
