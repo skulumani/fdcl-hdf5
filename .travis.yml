@@ -5,6 +5,7 @@ branches:
         - master
 install:       
     - bash ./scripts/build_travis.sh
+    - hash -r
 script:
     - cmake --version
 after_success:
