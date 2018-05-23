@@ -10,8 +10,8 @@ echo "First we'll remove cmake"
 
 read -p "Press Enter to continue"
 
-sudo apt-get purge cmake
-sudo apt-get install checkinstall
+sudo apt-get -y purge cmake
+sudo apt-get -y install checkinstall
 
 echo "Now going to download cmake v$VERSION.$BUILD"
 

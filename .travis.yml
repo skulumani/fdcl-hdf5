@@ -1,0 +1,10 @@
+language: generic
+sudo: true
+branches:
+    only:
+        - master
+install:       
+    - bash ./scripts/build_travis.sh
+script:
+    - cmake --version
+after_success:
