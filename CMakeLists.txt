@@ -12,7 +12,6 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
   set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release" "MinSizeRel" "RelWithDebInfo")
 endif()
 
-include(GNUInstallDirs)
 ################################################################################
 # DEPENDENCIES
 ################################################################################
@@ -57,6 +56,7 @@ set(PROJECT_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/include)
 
 include_directories(${PROJECT_INCLUDE_DIR})
 include_directories(${PROJECT_BINARY_DIR})
+include(GNUInstallDirs)
 
 set(fdcl_hdf5_src 
     ${PROJECT_SOURCE_DIR}/src/hdf5_eigen.cpp
@@ -72,7 +72,8 @@ target_include_directories(${PROJECT_NAME} PUBLIC
     PRIVATE src)
 set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION}
     SOVERSION 1)
-
+set_target_properties(${PROJECT_NAME} PROPERTIES
+    PUBLIC_HEADER "include/hdf5.hpp;include/hdf5_dataset.hpp;include/hdf5_eigen.hpp;include/hdf5_file.hpp;include/hdf5_group.hpp")
 add_executable(main ${PROJECT_SOURCE_DIR}/src/main.cpp)
 target_link_libraries(main ${PROJECT_NAME})
 
@@ -82,8 +83,8 @@ target_link_libraries(main ${PROJECT_NAME})
 install(TARGETS ${PROJECT_NAME} EXPORT FDCL_HDF5Config
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
-install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME})
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+    PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 install(EXPORT FDCL_HDF5Config DESTINATION share/FDCL_HDF5/cmake)
 
 export(TARGETS ${PROJECT_NAME} FILE FDCL_HDF5Config.cmake)
