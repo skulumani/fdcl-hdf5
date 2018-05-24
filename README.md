@@ -16,39 +16,16 @@
 
 ## FDCL-HDF5
 
-This is a wrapper library for interfacing [Eigen]() datatypes with the [HDF5](https://support.hdfgroup.org/HDF5/) file format.
+This is a wrapper library for interfacing [Eigen](eigen.tuxfamily.org) datatypes with the [HDF5](https://support.hdfgroup.org/HDF5/) file format.
 It allows one to easily save/read Eigen data in an open and cross-platform and cross language manner.
+The overall goal is to emulate [`h5py`](http://docs.h5py.org/en/latest/quick.html) in easy of use with numpy/Eigen based data.
 
-## Installation
+It currently supports the following:
 
-This library depends on both `Eigen` and `HDF5` which can be installed using the included scripts.
-
-1. [`build_eigen.sh`]( ./scripts/buid_eigen.sh ) - Install `Eigen` to `/usr/local`
-2. [`build_hdf5.sh`]( ./scripts/build_hdf5.sh ) - Build and install `HDF5`
-3. [`build_cmake.sh`](./scripts/build_cmake.sh) = Build `cmake` from source
-
-From the source directory:
-
-~~~
-mkdir build && cd build
-cmake ..
-make
-sudo checkinstall (or make install)
-~~~~
-
-Which uses `checkinstall` (`sudo apt-get install checkinstall`) to allow one to easily uninstall
-
-~~~
-sudo dpkg -r fdcl-hdf5
-~~~
-
-To use the shared library in your own project, execute everything above then add the following to your project `CMakeLists.txt`
-
-~~~
-find_package(FDCL_HDF5 REQUIRED)
-add_executable(<your_target> <source_files>)
-target_link_libraries(<your_target> fdcl_hdf5)
-~~~
+1. Opening HDF5 Files in read only, read/write, truncate modes
+2. Given an HDF5 file create subsequent groups, or datasets 
+3. Given a group create more subgroups or datasets
+4. Read/Write any Eigen variable (currently setup primarily for `Eigen::DenseBase` objects)
 
 ## Usage
 
@@ -83,3 +60,34 @@ hf.write("mat", mat);
 ~~~
 
 Which write the variable `mat` to the file with a name of `"mat"`.
+
+## Installation
+
+This library depends on both `Eigen` and `HDF5` which can be installed using the included scripts.
+
+1. [`build_eigen.sh`]( ./scripts/buid_eigen.sh ) - Install `Eigen` to `/usr/local`
+2. [`build_hdf5.sh`]( ./scripts/build_hdf5.sh ) - Build and install `HDF5`
+3. [`build_cmake.sh`](./scripts/build_cmake.sh) = Build `cmake` from source
+
+From the source directory:
+
+~~~
+mkdir build && cd build
+cmake ..
+make
+sudo checkinstall (or make install)
+~~~~
+
+Which uses `checkinstall` (`sudo apt-get install checkinstall`) to allow one to easily uninstall
+
+~~~
+sudo dpkg -r fdcl-hdf5
+~~~
+
+To use the shared library in your own project, execute everything above then add the following to your project `CMakeLists.txt`
+
+~~~
+find_package(FDCL_HDF5 REQUIRED)
+add_executable(<your_target> <source_files>)
+target_link_libraries(<your_target> fdcl_hdf5)
+~~~
