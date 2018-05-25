@@ -14,8 +14,7 @@ install:
     - cmake -DCOVERAGE=1 ..
     - make all
 script:
-    - pwd
-    - ls
     - ./main
+    - ./test_hdf5
 after_success:
     - coveralls --root . -E ".*gtest.*" -E ".*CMakeFiles.*"
