@@ -28,4 +28,4 @@ function cleanup {
 trap cleanup EXIT
 
 sudo apt-get update
-sudo apt-get install -y libeigen3-dev libhdf5-dev libhdf5-serial-dev
+sudo apt-get install -y libeigen3-dev libhdf5-dev libhdf5-serial-dev libhdf5-openmpi-dev libhdf5-cpp-11 hdf5-tools hdf5-helpers
