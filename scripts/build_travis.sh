@@ -68,7 +68,16 @@ sudo make install
 
 echo "Eigen installed"
 
-sudo apt-get update
-sudo apt-get install -y libhdf5-dev libhdf5-serial-dev hdf5-tools hdf5-helpers
+echo "We're going to download HDF5 ${HDF5_VER} and install to ${INSTALL_DIR}"
+mkdir ${HDF5_VER}
+wget ${HDF5_RELEASE_URL} -O ${TEMP_DIR}/${HDF5_VER}.tar.gz
+tar -xvzf ${HDF5_VER}.tar.gz -C ./${HDF5_VER} --strip-components=1
 
+echo "Going to install HDF5 using the configure script"
+cd ${HDF5_VER}
+bash ./configure --prefix=/usr/local/hdf5 --enable-cxx 
+make -j5
+# make check
+sudo make install
 
+echo "Finished installing HDF5"
