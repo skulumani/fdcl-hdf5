@@ -117,26 +117,57 @@ namespace HDF5 {
                 }
     }
 
+    template<typename Derived>
+    int DataSet::write(const Eigen::EigenBase<Derived>& mat) {
+        try { // try writing
+            // create a new dataset and save to pointer in this
+            typedef typename Derived::Scalar Scalar;
+            const H5::DataType * const datatype = DatatypeSpecialization<Scalar>::get();
+            const H5::DataSpace dataspace = internal::create_dataspace(mat);
+            const H5::DSetCreatPropList plist = H5::DSetCreatPropList::DEFAULT;
+
+            bool written = false;  // flag will be true when the data has been written
+            if (mat.derived().Flags & Eigen::RowMajor)
+            {
+                written = internal::write_rowmat(mat, datatype, dataset_ptr.get(), &dataspace);
+            }
+            else
+            {
+                written = internal::write_colmat(mat, datatype, dataset_ptr.get(), &dataspace);
+            }
+            
+            if (!written)
+            {
+                // data has not yet been written, so there is nothing else to try but copy the input
+                // matrix to a row major matrix and write it. 
+                const Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor> row_major_mat(mat);
+                dataset_ptr->write(row_major_mat.data(), *datatype);
+            }
+        } catch(...) {
+            std::cout << "Error" << std::endl;
+        }
+    }
+
 
 
 } // namespace HDF5
 
 // DataSet::write template specialization
-template int HDF5::DataSet::write<Eigen::Matrix<double, -1, 3> >(const Eigen::EigenBase<Eigen::Matrix<double, -1, 3> > &mat);
-template int HDF5::DataSet::write<Eigen::Matrix<int, -1, 3> >(const Eigen::EigenBase<Eigen::Matrix<int, -1, 3> > &mat);
+/* template int HDF5::DataSet::write<Eigen::Matrix<double, -1, 3> >(const Eigen::EigenBase<Eigen::Matrix<double, -1, 3> > &mat); */
+/* template int HDF5::DataSet::write<Eigen::Matrix<int, -1, 3> >(const Eigen::EigenBase<Eigen::Matrix<int, -1, 3> > &mat); */
 
-template int HDF5::DataSet::write<Eigen::Matrix<double, -1, -1> >(const Eigen::EigenBase<Eigen::Matrix<double, -1, -1> > &mat);
-template int HDF5::DataSet::write<Eigen::Matrix<int, -1, -1> >(const Eigen::EigenBase<Eigen::Matrix<int, -1, -1> > &mat);
+/* template int HDF5::DataSet::write<Eigen::Matrix<double, -1, -1> >(const Eigen::EigenBase<Eigen::Matrix<double, -1, -1> > &mat); */
+/* template int HDF5::DataSet::write<Eigen::Matrix<int, -1, -1> >(const Eigen::EigenBase<Eigen::Matrix<int, -1, -1> > &mat); */
 
-template int HDF5::DataSet::write<Eigen::Matrix<double, 1, 18> >(const Eigen::EigenBase<Eigen::Matrix<double, 1, 18> > &mat);
-template int HDF5::DataSet::write<Eigen::Matrix<int, 1, 18> >(const Eigen::EigenBase<Eigen::Matrix<int, 1, 18> > &mat);
+/* template int HDF5::DataSet::write<Eigen::Matrix<double, 1, 18> >(const Eigen::EigenBase<Eigen::Matrix<double, 1, 18> > &mat); */
+/* template int HDF5::DataSet::write<Eigen::Matrix<int, 1, 18> >(const Eigen::EigenBase<Eigen::Matrix<int, 1, 18> > &mat); */
 
-template int HDF5::DataSet::write<Eigen::Matrix<double, 1, -1> >(const Eigen::EigenBase<Eigen::Matrix<double, 1, -1> > &mat);
-template int HDF5::DataSet::write<Eigen::Matrix<int, 1, -1> >(const Eigen::EigenBase<Eigen::Matrix<int, 1, -1> > &mat);
+/* template int HDF5::DataSet::write<Eigen::Matrix<double, 1, -1> >(const Eigen::EigenBase<Eigen::Matrix<double, 1, -1> > &mat); */
+/* template int HDF5::DataSet::write<Eigen::Matrix<int, 1, -1> >(const Eigen::EigenBase<Eigen::Matrix<int, 1, -1> > &mat); */
 
 template int HDF5::DataSet::write<Eigen::Matrix<double, 3, 1> >(const Eigen::EigenBase<Eigen::Matrix<double, 3, 1> > &mat);
-template int HDF5::DataSet::write<Eigen::Matrix<double, 3, 3> >(const Eigen::EigenBase<Eigen::Matrix<double, 3, 3> > &mat);
-template int HDF5::DataSet::write<Eigen::Matrix<double, 4, 1> >(const Eigen::EigenBase<Eigen::Matrix<double, 4, 1> > &mat);
+/* template int HDF5::DataSet::write<Eigen::Matrix<double, 3, 3> >(const Eigen::EigenBase<Eigen::Matrix<double, 3, 3> > &mat); */
+/* template int HDF5::DataSet::write<Eigen::Matrix<double, 4, 1> >(const Eigen::EigenBase<Eigen::Matrix<double, 4, 1> > &mat); */
 // DataSet::read template specialization
 template int HDF5::DataSet::read<Eigen::Matrix<double, -1, 3> >(const Eigen::DenseBase<Eigen::Matrix<double, -1, 3> > &mat);
 template int HDF5::DataSet::read<Eigen::Matrix<int, -1, 3> >(const Eigen::DenseBase<Eigen::Matrix<int, -1, 3> > &mat);
