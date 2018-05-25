@@ -12,7 +12,7 @@ install:
     - cd build
     - cmake ..
 script:
-    - ./main
+    - ./build/main
     - cmake --version
     - which h5dump
 after_success:
