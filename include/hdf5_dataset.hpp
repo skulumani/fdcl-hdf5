@@ -24,6 +24,7 @@ namespace HDF5 {
             template<typename Derived>
             int read(const Eigen::DenseBase<Derived>& mat);
             
+            // TODO Not setup yet. 
             template<typename Derived>
             int write(const Eigen::EigenBase<Derived>& mat);
 
