@@ -3,10 +3,16 @@ sudo: true
 branches:
     only:
         - master
-install:       
+before_install:
     - bash ./scripts/build_travis.sh
+install:       
     - hash -r
+    - echo "Now try to build the module"
+    - mkdir build 
+    - cd build
+    - cmake ..
 script:
+    - ./main
     - cmake --version
     - which h5dump
 after_success:

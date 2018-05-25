@@ -71,9 +71,4 @@ echo "Eigen installed"
 sudo apt-get update
 sudo apt-get install -y libhdf5-dev libhdf5-serial-dev hdf5-tools hdf5-helpers
 
-echo "Now try to build the module"
-cd ${WORK_DIR}
-mkdir build 
-cd build
-cmake ..
 
