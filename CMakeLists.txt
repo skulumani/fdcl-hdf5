@@ -16,7 +16,8 @@ endif()
 # DEPENDENCIES
 ################################################################################
 # HDF5 Setup
-set(ENV{HDF5_ROOT} /usr/local/hdf5)
+# set(ENV{HDF5_ROOT} /usr/local/hdf5)
+
 find_package(HDF5 REQUIRED COMPONENTS C CXX)
 if (NOT HDF5_FOUND)
     message(STATUS "This project requires HDF5 and will not compile")
