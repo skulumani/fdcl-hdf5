@@ -19,6 +19,7 @@ class Group {
         Group(const File* file, const std::string& group_name);
         Group(const Group* group, const std::string& group_name);
     
+        Group group(const std::string& group_name) const;
         DataSet dataset(const std::string& name) const;
 
         template<typename Derived>

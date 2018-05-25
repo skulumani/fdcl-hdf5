@@ -34,6 +34,10 @@ namespace HDF5 {
         return DataSet(this, dataset_name);
     }
 
+    Group Group::group(const std::string& group_name) const {
+        return Group(this, group_name);
+    }
+
     template<typename Derived>
     DataSet Group::dataset(const std::string& name, const Eigen::EigenBase<Derived>& mat) const {
         return DataSet(this, name, mat);
