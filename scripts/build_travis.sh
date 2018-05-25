@@ -4,6 +4,7 @@ EIGEN_VER=3.3.4
 INSTALL_DIR="/usr/local/include"
 EIGEN_RELEASE_URL="https://github.com/eigenteam/eigen-git-mirror/archive/${EIGEN_VER}.tar.gz"
 TEMP_DIR="$(mktemp -d)"
+WORK_DIR="$(pwd)"
 
 HDF5_VER=1.10.2
 INSTALL_DIR="/usr/local/include"
@@ -71,6 +72,7 @@ sudo apt-get update
 sudo apt-get install -y libhdf5-dev libhdf5-serial-dev hdf5-tools hdf5-helpers
 
 echo "Now try to build the module"
+cd ${WORK_DIR}
 mkdir build 
 cd build
 cmake ..
