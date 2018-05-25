@@ -3,6 +3,10 @@ sudo: true
 branches:
     only:
         - master
+addons:
+    apt:
+      sources:
+        - ubuntu-toolchain-r-test
 before_install:
     - bash ./scripts/build_travis.sh
     - pip install --user cpp-coveralls
@@ -17,4 +21,4 @@ script:
     - ./main
     - ./test_hdf5
 after_success:
-    - coveralls --root . -E ".*gtest.*" -E ".*CMakeFiles.*"
+    - coveralls --root .. -E ".*external.*" -E ".*CMakeFiles.*" -E ".*tests/.*.cpp.*"
