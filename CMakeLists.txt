@@ -104,6 +104,7 @@ export(TARGETS ${PROJECT_NAME} FILE FDCL_HDF5Config.cmake)
 ################################################################################
 add_executable(test_hdf5 
     ${PROJECT_SOURCE_DIR}/tests/test_hdf5.cpp 
+    ${PROJECT_SOURCE_DIR}/tests/test_eigen_sizes.cpp
     ${PROJECT_SOURCE_DIR}/tests/test_all.cpp)
 target_link_libraries(test_hdf5 PRIVATE gtest ${PROJECT_NAME})
 add_test(NAME test_hdf5 COMMAND test_hdf5
