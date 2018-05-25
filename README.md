@@ -35,12 +35,6 @@ All of the functionality is included in the `HDF5` namespace and is exposed to y
 #include "hdf5.hpp"
 ~~~
 
-You can easily create a file:
-
-~~~
-HDF5::File hf = HDF5::File("/tmp/test.hdf5", HDF5::File::Truncate);
-~~~
-
 There are several different modes for operating on files:
 
 ~~~
@@ -51,15 +45,81 @@ HDF5::File::Excl; /**< Only open if the file doesn't exist */
 HDF5::File::Create; /**< Create a new file */
 ~~~
 
-Once a file is created you can write some data (dataset) to it:
+Here is a basic example of reading/writing Eigen matrices.
+You can try this yourself using `main`
+Look in the `tests` directory for more examples 
+~~~
+#include "hdf5.hpp"
+
+#include <Eigen/Dense>
+
+#include <iostream>
+
+void write_data() {
+    Eigen::MatrixXd matrix(3, 3);
+    matrix << 1, 2, 3, 4, 5, 6, 7, 8, 9;
+
+    // open the file 
+    HDF5::File hf = HDF5::File("filename.hdf5", HDF5::File::Truncate);
+
+    // write the data
+    hf.write("dataset_name", matrix);
+    
+    std::cout << "Original Matrix: " << std::endl;
+    std::cout << matrix << std::endl;
+}
+
+void read_data() {
+    // open the file for reading
+    HDF5::File hf = HDF5::File("filename.hdf5", HDF5::File::ReadOnly);
+
+    Eigen::MatrixXd matrix;
+
+    hf.read("dataset_name", matrix);
+    
+    std::cout << "Matrix read: " << std::endl;
+    std::cout << matrix << std::endl;
+}
+
+int main() {
+    write_data();
+    read_data();
+    return 0;
+}
+~~~
+
+## HDF5 Primer
+
+An HDF5 file is a container for two kinds of objects:
+
+1. **datasets** - array like collections of data (Eigen data in this case)
+2. **groups** - folder like containers that hold other datasets or groups
+
+    The important thing to remember is that within an HDF5 file, data is stored in a unix like file structure consisiting of a root group, `/` , and nested groups/datasets.
+
+You can create any arbitrary number of  groups:
 
 ~~~
-Eigen::MatriXd mat(1, 3);
-mat = Eigen::MatrixXd::Random(1, 3);
-hf.write("mat", mat);
+HDF5::File hf = HDF5::File("filename.hdf5", HDF5::File::Truncate);
+
+HDF5::Group group1 = hf.group("group_name");
+HDF5::Group group2 = group1.group("group_name");
 ~~~
 
-Which write the variable `mat` to the file with a name of `"mat"`.
+And any number of **datasets** within the groups, or within the root group (file)
+
+~~~
+HDF5::DataSet group1_dataset = group1.dataset("dataset_name", matrix);
+HDF5::DataSet group2_dataset = group2.dataset("dataset_name", matrix);
+HDF5::DataSet hf_dataset = hf.dataset("dataset_name", matrix);
+~~~
+
+Finally, if you only want to read/write directly without creating additional objects
+
+~~~
+group1.write("dataset_name", matrix);
+hf.write("dataset_name", matrix);
+~~~
 
 ## Installation
 
@@ -91,3 +151,9 @@ find_package(FDCL_HDF5 REQUIRED)
 add_executable(<your_target> <source_files>)
 target_link_libraries(<your_target> fdcl_hdf5)
 ~~~
+
+## Inspiration
+
+This borrows heavily from lots of other great work:
+
+* [eigen3-hdf5](https://github.com/garrison/eigen3-hdf5)
