@@ -4,6 +4,7 @@ project( fdcl_hdf5 VERSION 0.1 DESCRIPTION "FDCL HDF5 Library")
 enable_language(CXX)
 set(CMAKE_CXX_STANDARD 11)
 set(DEFAULT_BUILD_TYPE "Release")
+set(COVERAGE OFF CACHE BOOL "Coverage")
 
 if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
   message(STATUS "Setting build type to '${DEFAULT_BUILD_TYPE}' as none was specified.")
@@ -99,3 +100,12 @@ add_executable(test_hdf5
 target_link_libraries(test_hdf5 gtest ${PROJECT_NAME})
 add_test(NAME test_hdf5 COMMAND test_hdf5
     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
+
+################################################################################
+# COVERAGE
+################################################################################
+
+if (COVERAGE)
+    target_compile_options(test_hdf5 PRIVATE --coverage)
+    target_link_libraries(test_hdf5 PRIVATE --coverage)
+endif()

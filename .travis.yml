@@ -5,15 +5,17 @@ branches:
         - master
 before_install:
     - bash ./scripts/build_travis.sh
+    - pip install --user cpp-coveralls
 install:       
     - hash -r
     - echo "Now try to build the module"
     - mkdir build 
     - cd build
-    - cmake ..
+    - cmake -DCOVERAGE=1 ..
     - make all
 script:
-    - ./build/main
-    - cmake --version
-    - which h5dump
+    - pwd
+    - ls
+    - ./main
 after_success:
+    - coveralls --root . -E ".*gtest.*" -E ".*CMakeFiles.*"
