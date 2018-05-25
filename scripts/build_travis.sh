@@ -29,3 +29,10 @@ trap cleanup EXIT
 
 sudo apt-get update
 sudo apt-get install -y libeigen3-dev libhdf5-dev libhdf5-serial-dev hdf5-tools hdf5-helpers
+
+echo "Now try to build the module"
+mkdir build 
+cd build
+cmake ..
+
+./main
