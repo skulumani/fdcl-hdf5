@@ -87,3 +87,27 @@ TEST(TestFDCLUAVDataSet, Eigen3by1) {
 
     ASSERT_TRUE(mat_read.isApprox(mat));
 }
+
+TEST(TestFDCLUAVDataSet, Eigen3by3) {
+    HDF5::File hf_file("/tmp/test.hdf5", HDF5::File::Truncate);
+    Eigen::Matrix<double, 4, 1> mat, mat_read;
+    mat = Eigen::MatrixXd::Random(4, 1);
+
+    HDF5::DataSet hf_dataset = hf_file.dataset("matrix", mat);
+    
+    hf_dataset.read( mat_read);
+
+    ASSERT_TRUE(mat_read.isApprox(mat));
+}
+
+TEST(TestFDCLUAVDataSet, Eigen4by1) {
+    HDF5::File hf_file("/tmp/test.hdf5", HDF5::File::Truncate);
+    Eigen::Matrix<double, 4, 1> mat, mat_read;
+    mat = Eigen::MatrixXd::Random(4, 1);
+
+    HDF5::DataSet hf_dataset = hf_file.dataset("matrix", mat);
+    
+    hf_dataset.read( mat_read);
+
+    ASSERT_TRUE(mat_read.isApprox(mat));
+}
