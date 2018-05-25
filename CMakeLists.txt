@@ -14,6 +14,14 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
 endif()
 
 ################################################################################
+# COVERAGE
+################################################################################
+# we use this to get code coverage
+if(CMAKE_CXX_COMPILER_ID MATCHES GNU)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
+endif()
+
+################################################################################
 # DEPENDENCIES
 ################################################################################
 # HDF5 Setup
@@ -101,11 +109,4 @@ target_link_libraries(test_hdf5 PRIVATE gtest ${PROJECT_NAME})
 add_test(NAME test_hdf5 COMMAND test_hdf5
     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
 
-################################################################################
-# COVERAGE
-################################################################################
 
-if (COVERAGE)
-    target_compile_options(test_hdf5 PRIVATE --coverage)
-    target_link_libraries(test_hdf5 PRIVATE --coverage)
-endif()
