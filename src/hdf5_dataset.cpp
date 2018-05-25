@@ -12,14 +12,14 @@ namespace HDF5 {
     DataSet::~DataSet( void ) {
         dataset_ptr->close();
     }
-    
+   
+    // Only for opening a dataset
     DataSet::DataSet(const File* file, const std::string& dataset_name) {
         dataset_ptr = std::make_shared<H5::DataSet>();
         try {
             H5::Exception::dontPrint();
             dataset_ptr = std::make_shared<H5::DataSet>(file->file_ptr->openDataSet(dataset_name));
-        } catch ( const H5::FileIException& err_does_not_exist) {
-            dataset_ptr.reset();
+        } catch ( const H5::FileIException& err_does_not_exist) { // create the dataset
             std::cout << "DataSet: " << dataset_name << " does not exist" << std::endl;
         }
     }
@@ -30,7 +30,6 @@ namespace HDF5 {
             H5::Exception::dontPrint();
             dataset_ptr = std::make_shared<H5::DataSet>(group->group_ptr->openDataSet(dataset_name));
         } catch ( const H5::GroupIException& err_does_not_exist) {
-            dataset_ptr.reset();
             std::cout << "DataSet: " << dataset_name << " does not exist" << std::endl;
         }
     }
@@ -79,7 +78,7 @@ namespace HDF5 {
                 const Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor> row_major_mat(mat);
                 dataset_ptr->write(row_major_mat.data(), *datatype);
             }
-                }
+        }
     }
 
     template<typename Derived>
