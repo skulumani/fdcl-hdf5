@@ -1,18 +1,21 @@
-| Build Status                             | Latest Release                                      | Version                                             | Last Commit                                                     | Activity                                                      
-| :--------------------------------------: | :--------------------------:                        | :----:                                              | :------:                                                        | :------:                                                      
-| [![Travis][travis_shield]][travis]       | [![Github Release][release_shield]][github_release] | [![Github Version][version_shield]][github_version] | [![Github Last Commit][last_commit_shield]][github_last_commit] | [![Github commit activity][activity_shield]][github_activity] 
+| Build Status                             | Coverage                                    | Latest Release                                      | Version                                             | Last Commit                                                     | Activity
+| :--------------------------------------: | :-------------:                             | :--------------------------:                        | :----:                                              | :------:                                                        | :------:
+| [![Travis][travis_shield]][travis]       | [![Coveralls][coveralls_shield]][coveralls] | [![Github Release][release_shield]][github_release] | [![Github Version][version_shield]][github_version] | [![Github Last Commit][last_commit_shield]][github_last_commit] | [![Github commit activity][activity_shield]][github_activity]
 
 [travis_shield]: https://travis-ci.org/skulumani/fdcl-hdf5.svg?branch=master 
 [release_shield]: https://img.shields.io/github/release/skulumani/fdcl-hdf5.svg
 [version_shield]: https://badge.fury.io/gh/skulumani%2Ffdcl-hdf5.svg
 [last_commit_shield]: https://img.shields.io/github/last-commit/skulumani/fdcl-hdf5.svg
 [activity_shield]: https://img.shields.io/github/commit-activity/y/skulumani/fdcl-hdf5.svg
+[coveralls_shield]: https://coveralls.io/repos/github/skulumani/fdcl-hdf5/badge.svg?branch=master
+
 
 [travis]: https://travis-ci.org/skulumani/fdcl-hdf5
 [github_release]: https://github.com/skulumani/fdcl-hdf5/releases/latest
 [github_version]: https://github.com/skulumani/fdcl-hdf5/releases/latest
 [github_last_commit]: https://github.com/skulumani/fdcl-hdf5/commits/master
 [github_activity]: https://github.com/skulumani/fdcl-hdf5/graphs/commit-activity
+[coveralls]: https://coveralls.io/github/skulumani/fdcl-hdf5?branch=master
 
 ## FDCL-HDF5
 
