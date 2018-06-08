@@ -5,6 +5,7 @@ enable_language(CXX)
 set(CMAKE_CXX_STANDARD 11)
 set(DEFAULT_BUILD_TYPE "Release")
 set(COVERAGE OFF CACHE BOOL "Coverage")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
 
 if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
   message(STATUS "Setting build type to '${DEFAULT_BUILD_TYPE}' as none was specified.")
