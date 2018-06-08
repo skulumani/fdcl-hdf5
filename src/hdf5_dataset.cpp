@@ -153,6 +153,8 @@ namespace HDF5 {
 } // namespace HDF5
 
 // DataSet::write template specialization
+template int HDF5::DataSet::write<Eigen::VectorXd>(const Eigen::EigenBase<Eigen::VectorXd>& mat);
+template int HDF5::DataSet::write<Eigen::VectorXi>(const Eigen::EigenBase<Eigen::VectorXi>& mat);
 /* template int HDF5::DataSet::write<Eigen::Matrix<double, -1, 3> >(const Eigen::EigenBase<Eigen::Matrix<double, -1, 3> > &mat); */
 /* template int HDF5::DataSet::write<Eigen::Matrix<int, -1, 3> >(const Eigen::EigenBase<Eigen::Matrix<int, -1, 3> > &mat); */
 
@@ -169,6 +171,9 @@ template int HDF5::DataSet::write<Eigen::Matrix<double, 3, 1> >(const Eigen::Eig
 /* template int HDF5::DataSet::write<Eigen::Matrix<double, 3, 3> >(const Eigen::EigenBase<Eigen::Matrix<double, 3, 3> > &mat); */
 /* template int HDF5::DataSet::write<Eigen::Matrix<double, 4, 1> >(const Eigen::EigenBase<Eigen::Matrix<double, 4, 1> > &mat); */
 // DataSet::read template specialization
+template int HDF5::DataSet::read<Eigen::VectorXd>(const Eigen::DenseBase<Eigen::VectorXd>& mat);
+template int HDF5::DataSet::read<Eigen::VectorXi>(const Eigen::DenseBase<Eigen::VectorXi>& mat);
+
 template int HDF5::DataSet::read<Eigen::Matrix<double, -1, 3> >(const Eigen::DenseBase<Eigen::Matrix<double, -1, 3> > &mat);
 template int HDF5::DataSet::read<Eigen::Matrix<int, -1, 3> >(const Eigen::DenseBase<Eigen::Matrix<int, -1, 3> > &mat);
 
@@ -185,6 +190,9 @@ template int HDF5::DataSet::read<Eigen::Matrix<double, 3, 1> >(const Eigen::Dens
 template int HDF5::DataSet::read<Eigen::Matrix<double, 3, 3> >(const Eigen::DenseBase<Eigen::Matrix<double, 3, 3> > &mat);
 template int HDF5::DataSet::read<Eigen::Matrix<double, 4, 1> >(const Eigen::DenseBase<Eigen::Matrix<double, 4, 1> > &mat);
 // DataSet::DataSet for Files
+template HDF5::DataSet::DataSet<Eigen::VectorXd>(const HDF5::File *file, const std::string &name, const Eigen::EigenBase<Eigen::VectorXd>& mat);
+template HDF5::DataSet::DataSet<Eigen::VectorXi>(const HDF5::File *file, const std::string &name, const Eigen::EigenBase<Eigen::VectorXi>& mat);
+
 template HDF5::DataSet::DataSet<Eigen::Matrix<double, -1, 3> >(const HDF5::File *file, const std::string &name, const Eigen::EigenBase<Eigen::Matrix<double, -1, 3> > &mat);
 template HDF5::DataSet::DataSet<Eigen::Matrix<int, -1, 3> >(const HDF5::File *file, const std::string &name, const Eigen::EigenBase<Eigen::Matrix<int, -1, 3> > &mat);
 
@@ -201,6 +209,9 @@ template HDF5::DataSet::DataSet<Eigen::Matrix<double, 3, 1> >(const HDF5::File *
 template HDF5::DataSet::DataSet<Eigen::Matrix<double, 3, 3> >(const HDF5::File *file, const std::string &name, const Eigen::EigenBase<Eigen::Matrix<double, 3, 3> > &mat);
 template HDF5::DataSet::DataSet<Eigen::Matrix<double, 4, 1> >(const HDF5::File *file, const std::string &name, const Eigen::EigenBase<Eigen::Matrix<double, 4, 1> > &mat);
 // DataSet::DataSet for Groups
+template HDF5::DataSet::DataSet<Eigen::VectorXd>(const HDF5::Group *group, const std::string &name, const Eigen::EigenBase<Eigen::VectorXd>& mat);
+template HDF5::DataSet::DataSet<Eigen::VectorXi>(const HDF5::Group *group, const std::string &name, const Eigen::EigenBase<Eigen::VectorXi>& mat);
+
 template HDF5::DataSet::DataSet<Eigen::Matrix<double, -1, 3> >(const HDF5::Group *group, const std::string &name, const Eigen::EigenBase<Eigen::Matrix<double, -1, 3> > &mat);
 template HDF5::DataSet::DataSet<Eigen::Matrix<int, -1, 3> >(const HDF5::Group *group, const std::string &name, const Eigen::EigenBase<Eigen::Matrix<int, -1, 3> > &mat);
 
