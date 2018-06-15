@@ -1,7 +1,5 @@
 cmake_minimum_required(VERSION 3.9)
-project( fdcl_hdf5 VERSION 0.1 DESCRIPTION "FDCL HDF5 Library")
-set (fdcl_hdf5_VERSION_MAJOR 1)
-set (fdcl_hdf5_VERSION_MINOR 0)
+project( fdcl_hdf5 VERSION 1.0 DESCRIPTION "FDCL HDF5 Library")
 
 enable_language(CXX)
 set(CMAKE_CXX_STANDARD 11)
