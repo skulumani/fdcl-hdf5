@@ -26,7 +26,11 @@ endif()
 # DEPENDENCIES
 ################################################################################
 # HDF5 Setup
-# set(ENV{HDF5_ROOT} /usr/local/hdf5)
+if(LINUX)
+    set(ENV{HDF5_ROOT} /usr/local/hdf5)
+elseif(APPLE)
+
+endif()
 
 find_package(HDF5 REQUIRED COMPONENTS C CXX)
 if (NOT HDF5_FOUND)
