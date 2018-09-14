@@ -155,6 +155,22 @@ add_executable(<your_target> <source_files>)
 target_link_libraries(<your_target> fdcl_hdf5)
 ~~~
 
+## Eigen Sizes that are/will be implemented
+
+15x15
+VectorXd
+VectorXi
+Matrix<double, -1, 3>
+Matrix<double, -1, -1>
+Matrix<double, 1, 18>
+Matrix<double, 1, -1> 
+
+Also all integers versions
+
+Matrix<double, 3, 1>
+Matrix<double, 3, 3>
+Matrix<double, 4, 1>
+
 ## Inspiration
 
 This borrows heavily from lots of other great work:
