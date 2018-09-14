@@ -146,6 +146,8 @@ namespace HDF5 {
         } catch(...) {
             std::cout << "Error" << std::endl;
         }
+
+        return 0;
     }
 
 
