@@ -5,6 +5,42 @@
 #include <iostream>
 
 // File Testing
+TEST(TestFDCLUAVFile, VectorXd) {
+    HDF5::File hf_file("/tmp/test.hdf5", HDF5::File::Truncate);
+    Eigen::VectorXd mat, mat_read;
+    mat = Eigen::VectorXd::Random(100, 1);
+    hf_file.write("matrix", mat);
+    hf_file.read("matrix", mat_read);
+    ASSERT_TRUE(mat_read.isApprox(mat));
+}
+
+TEST(TestFDCLUAVFile, VectorXi) {
+    HDF5::File hf_file("/tmp/test.hdf5", HDF5::File::Truncate);
+    Eigen::VectorXi mat, mat_read;
+    mat = Eigen::VectorXi::Random(100, 1);
+    hf_file.write("matrix", mat);
+    hf_file.read("matrix", mat_read);
+    ASSERT_TRUE(mat_read.isApprox(mat));
+}
+
+TEST(TestFDCLUAVFile, RowVectorXd) {
+    HDF5::File hf_file("/tmp/test.hdf5", HDF5::File::Truncate);
+    Eigen::RowVectorXd mat, mat_read;
+    mat = Eigen::RowVectorXd::Random(1, 100);
+    hf_file.write("matrix", mat);
+    hf_file.read("matrix", mat_read);
+    ASSERT_TRUE(mat_read.isApprox(mat));
+}
+
+TEST(TestFDCLUAVFile, RowVectorXi) {
+    HDF5::File hf_file("/tmp/test.hdf5", HDF5::File::Truncate);
+    Eigen::VectorXi mat, mat_read;
+    mat = Eigen::RowVectorXi::Random(1, 100);
+    hf_file.write("matrix", mat);
+    hf_file.read("matrix", mat_read);
+    ASSERT_TRUE(mat_read.isApprox(mat));
+}
+
 TEST(TestFDCLUAVFile, Eigen3by1) {
     HDF5::File hf_file("/tmp/test.hdf5", HDF5::File::Truncate);
     Eigen::Matrix<double, 3, 1> mat, mat_read;
