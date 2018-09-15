@@ -198,6 +198,9 @@ template HDF5::DataSet::DataSet(const HDF5::File *file, const std::string &name,
 template HDF5::DataSet::DataSet(const HDF5::File *file, const std::string &name, const Eigen::EigenBase<Eigen::Matrix<double, -1, 3> > &mat);
 template HDF5::DataSet::DataSet(const HDF5::File *file, const std::string &name, const Eigen::EigenBase<Eigen::Matrix<int, -1, 3> > &mat);
 
+template HDF5::DataSet::DataSet(const HDF5::File *file, const std::string &name, const Eigen::EigenBase<Eigen::Matrix<double, 3, -1> > &mat);
+template HDF5::DataSet::DataSet(const HDF5::File *file, const std::string &name, const Eigen::EigenBase<Eigen::Matrix<int, 3, -1> > &mat);
+
 template HDF5::DataSet::DataSet(const HDF5::File *file, const std::string &name, const Eigen::EigenBase<Eigen::Matrix<double, -1, -1> > &mat);
 template HDF5::DataSet::DataSet(const HDF5::File *file, const std::string &name, const Eigen::EigenBase<Eigen::Matrix<int, -1, -1> > &mat);
 
