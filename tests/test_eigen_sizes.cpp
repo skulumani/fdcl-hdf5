@@ -86,14 +86,15 @@ TEST(TestFDCLUAVFile, Matrix3xNDouble) {
     ASSERT_TRUE(mat_read.isApprox(mat));
 }
 
-/* TEST(TestFDCLUAVFile, MatrixNby3Int) { */
-/*     HDF5::File hf_file("/tmp/test.hdf5", HDF5::File::Truncate); */
-/*     Eigen::Matrix<int, -1, 3> mat, mat_read; */
-/*     mat = Eigen::MatrixXi::Random(2, 3); */
-/*     hf_file.write("matrix", mat); */
-/*     hf_file.read("matrix", mat_read); */
-/*     ASSERT_TRUE(mat_read.isApprox(mat)); */
-/* } */
+TEST(TestFDCLUAVFile, Matrix3xNInt) {
+    HDF5::File hf_file("/tmp/test.hdf5", HDF5::File::Truncate);
+    Eigen::Matrix<int, 3, -1> mat, mat_read;
+    mat = Eigen::MatrixXi::Random(3, 12);
+    hf_file.write("matrix", mat);
+    hf_file.read("matrix", mat_read);
+    ASSERT_TRUE(mat_read.isApprox(mat));
+}
+
 TEST(TestFDCLUAVFile, Eigen3by1) {
     HDF5::File hf_file("/tmp/test.hdf5", HDF5::File::Truncate);
     Eigen::Matrix<double, 3, 1> mat, mat_read;
