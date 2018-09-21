@@ -33,7 +33,7 @@ tar -xvzf ${HDF5_VER}.tar.gz -C ./${HDF5_VER} --strip-components=1
 echo "Going to install HDF5 using the configure script"
 read -p "Press enter to continue"
 cd ${HDF5_VER}
-bash ./configure --prefix=/usr/local/hdf5 --enable-cxx 
+bash ./configure --prefix=/usr/local --enable-cxx 
 make -j5
 # make check
 sudo checkinstall make install
