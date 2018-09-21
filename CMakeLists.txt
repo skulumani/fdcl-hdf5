@@ -27,7 +27,7 @@ endif()
 ################################################################################
 # HDF5 Setup
 if(LINUX)
-    set(ENV{HDF5_ROOT} /usr/local/hdf5)
+    # set(ENV{HDF5_ROOT} /usr/local/hdf5)
 elseif(APPLE)
 
 endif()
