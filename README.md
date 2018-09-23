@@ -157,19 +157,33 @@ target_link_libraries(<your_target> fdcl_hdf5)
 
 ## Eigen Sizes that are/will be implemented
 
-15x15
-VectorXd
-VectorXi
-Matrix<double, -1, 3>
-Matrix<double, -1, -1>
-Matrix<double, 1, 18>
-Matrix<double, 1, -1> 
-
 Also all integers versions
 
+VectorXd - Matrix<double, -1, 1>
+VectorXi - Matrix<int, -1, 1>
+
+RowVectorXd - Matrix<double, 1, -1>
+RowVectorXi - Matrix<int, 1, -1>
+
+Matrix<double, -1, -1>
+Matrix<double, -1, 3>
+
+Matrix<double, 3, -1> 
+
+
+Matrix<double, 1, 18>
+Matirx<double, 18, 1>
+
 Matrix<double, 3, 1>
+Matrix<double, 1, 3>
+
 Matrix<double, 3, 3>
+All above implemented fro teh file
+
 Matrix<double, 4, 1>
+Matrix<double, 1, 4>
+
+Matrix<double, 15, 15>
 
 ## Inspiration
 
