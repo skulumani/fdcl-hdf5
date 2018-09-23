@@ -149,6 +149,15 @@ TEST(TestFDCLUAVFile, Matrix3x1Int) {
     ASSERT_TRUE(mat_read.isApprox(mat));
 }
 
+TEST(TestFDCLUAVFile, Matrix1x3Double) {
+    HDF5::File hf_file("/tmp/test.hdf5", HDF5::File::Truncate);
+    Eigen::Matrix<double, 1, 3> mat, mat_read;
+    mat << 1, 2, 3;
+    hf_file.write("matrix", mat);
+    hf_file.read("matrix", mat_read);
+    ASSERT_TRUE(mat_read.isApprox(mat));
+}
+
 TEST(TestFDCLUAVFile, Eigen3by3) {
     HDF5::File hf_file("/tmp/test.hdf5", HDF5::File::Truncate);
     Eigen::Matrix<double, 3, 3> mat, mat_read;

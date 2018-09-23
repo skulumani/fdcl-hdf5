@@ -108,6 +108,9 @@ template int HDF5::File::write<Eigen::Matrix<int, 1, -1> >(const std::string &na
 template int HDF5::File::write<Eigen::Matrix<double, 3, 1> >(const std::string &name, const Eigen::EigenBase<Eigen::Matrix<double, 3, 1> > &mat);
 template int HDF5::File::write<Eigen::Matrix<int, 3, 1> >(const std::string &name, const Eigen::EigenBase<Eigen::Matrix<int, 3, 1> > &mat);
 
+template int HDF5::File::write<Eigen::Matrix<double, 1, 3> >(const std::string &name, const Eigen::EigenBase<Eigen::Matrix<double, 1, 3> > &mat);
+template int HDF5::File::write<Eigen::Matrix<int, 1, 3> >(const std::string &name, const Eigen::EigenBase<Eigen::Matrix<int, 1, 3> > &mat);
+
 template int HDF5::File::write<Eigen::Matrix<double, 3, 3> >(const std::string &name, const Eigen::EigenBase<Eigen::Matrix<double, 3, 3> > &mat);
 template int HDF5::File::write<Eigen::Matrix<double, 4, 1> >(const std::string &name, const Eigen::EigenBase<Eigen::Matrix<double, 4, 1> > &mat);
 
@@ -135,6 +138,9 @@ template int HDF5::File::read<Eigen::Matrix<int, 1, -1> >(const std::string &nam
 
 template int HDF5::File::read<Eigen::Matrix<double, 3, 1> >(const std::string &name, const Eigen::DenseBase<Eigen::Matrix<double, 3, 1> > &mat);
 template int HDF5::File::read<Eigen::Matrix<int, 3, 1> >(const std::string &name, const Eigen::DenseBase<Eigen::Matrix<int, 3, 1> > &mat);
+
+template int HDF5::File::read<Eigen::Matrix<double, 1, 3> >(const std::string &name, const Eigen::DenseBase<Eigen::Matrix<double, 1, 3> > &mat);
+template int HDF5::File::read<Eigen::Matrix<int, 1, 3> >(const std::string &name, const Eigen::DenseBase<Eigen::Matrix<int, 1, 3> > &mat);
 
 template int HDF5::File::read<Eigen::Matrix<double, 3, 3> >(const std::string &name, const Eigen::DenseBase<Eigen::Matrix<double, 3, 3> > &mat);
 template int HDF5::File::read<Eigen::Matrix<double, 4, 1> >(const std::string &name, const Eigen::DenseBase<Eigen::Matrix<double, 4, 1> > &mat);

@@ -170,13 +170,13 @@ Matrix<double, -1, 3>
 
 Matrix<double, 3, -1> 
 
-All above implemented fro teh file
 
 Matrix<double, 1, 18>
 Matirx<double, 18, 1>
 
 Matrix<double, 3, 1>
 Matrix<double, 1, 3>
+All above implemented fro teh file
 
 Matrix<double, 3, 3>
 
