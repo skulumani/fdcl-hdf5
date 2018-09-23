@@ -289,6 +289,8 @@ template void save<Eigen::Matrix<double, 1, 3> >(H5::H5Location& h5group, const 
 template void save<Eigen::Matrix<int, 1, 3> >(H5::H5Location& h5group, const std::string &name, const Eigen::EigenBase<Eigen::Matrix<int, 1, 3> > &mat, const H5::DSetCreatPropList &plist);
 
 template void save<Eigen::Matrix<double, 3, 3> >(H5::H5Location& h5group, const std::string &name, const Eigen::EigenBase<Eigen::Matrix<double, 3, 3> > &mat, const H5::DSetCreatPropList &plist);
+template void save<Eigen::Matrix<int, 3, 3> >(H5::H5Location& h5group, const std::string &name, const Eigen::EigenBase<Eigen::Matrix<int, 3, 3> > &mat, const H5::DSetCreatPropList &plist);
+
 template void save<Eigen::Matrix<double, 4, 1> >(H5::H5Location& h5group, const std::string &name, const Eigen::EigenBase<Eigen::Matrix<double, 4, 1> > &mat, const H5::DSetCreatPropList &plist);
 
 // Explicit template specialization
@@ -487,5 +489,7 @@ template void load<Eigen::Matrix<double, 1, 3> >(const H5::H5Location &h5group, 
 template void load<Eigen::Matrix<int, 1, 3> >(const H5::H5Location &h5group, const std::string &name, const Eigen::DenseBase<Eigen::Matrix<int, 1, 3> > & mat);
 
 template void load<Eigen::Matrix<double, 3, 3> >(const H5::H5Location &h5group, const std::string &name, const Eigen::DenseBase<Eigen::Matrix<double, 3, 3> > & mat);
+template void load<Eigen::Matrix<int, 3, 3> >(const H5::H5Location &h5group, const std::string &name, const Eigen::DenseBase<Eigen::Matrix<int, 3, 3> > & mat);
+
 template void load<Eigen::Matrix<double, 4, 1> >(const H5::H5Location &h5group, const std::string &name, const Eigen::DenseBase<Eigen::Matrix<double, 4, 1> > & mat);
 
