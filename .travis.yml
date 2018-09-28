@@ -21,4 +21,4 @@ script:
     - ./main
     - ./test_hdf5
 after_success:
-    - coveralls --root .. -E ".*external.*" -E ".*CMakeFiles.*" -E ".*tests/.*.cpp.*"
+    - coveralls --root .. -E ".*external.*" -E ".*CMakeFiles.*" -E ".*tests/.*.cpp.*" -E "./extern/*"
