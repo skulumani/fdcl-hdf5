@@ -9,7 +9,6 @@
 [activity_shield]: https://img.shields.io/github/commit-activity/y/skulumani/fdcl-hdf5.svg
 [coveralls_shield]: https://coveralls.io/repos/github/skulumani/fdcl-hdf5/badge.svg?branch=master
 
-
 [travis]: https://travis-ci.org/skulumani/fdcl-hdf5
 [github_release]: https://github.com/skulumani/fdcl-hdf5/releases/latest
 [github_version]: https://github.com/skulumani/fdcl-hdf5/releases/latest
