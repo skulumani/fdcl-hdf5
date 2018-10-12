@@ -7,7 +7,7 @@
 [version_shield]: https://badge.fury.io/gh/skulumani%2Ffdcl-hdf5.svg
 [last_commit_shield]: https://img.shields.io/github/last-commit/skulumani/fdcl-hdf5.svg
 [activity_shield]: https://img.shields.io/github/commit-activity/y/skulumani/fdcl-hdf5.svg
-[coveralls_shield]: https://coveralls.io/repos/github/skulumani/fdcl-hdf5/badge.svg?branch=master
+[coveralls_shield]: https://coveralls.io/repos/github/skulumani/fdcl-hdf5/badge.png?branch=master
 
 [travis]: https://travis-ci.org/skulumani/fdcl-hdf5
 [github_release]: https://github.com/skulumani/fdcl-hdf5/releases/latest
