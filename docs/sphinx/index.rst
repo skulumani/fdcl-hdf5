@@ -8,7 +8,7 @@ Welcome to the documentation!
 
 .. toctree::
    :caption: INSTALLATION
-   :maxdepth: 1
+   :maxdepth: 2
 
 	installation.rst
 	usage.rst
