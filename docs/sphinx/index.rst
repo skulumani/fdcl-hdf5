@@ -10,8 +10,9 @@ Welcome to the documentation!
    :caption: INSTALLATION
    :maxdepth: 1
 
-   installation.rst
-   usage.rst
+	installation.rst
+	usage.rst
+	hdf5_tutorial.rst
 
 .. toctree::
    :caption: API REFERENCE
