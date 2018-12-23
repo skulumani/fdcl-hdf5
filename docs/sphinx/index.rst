@@ -11,20 +11,3 @@ Welcome to the documentation!
    :maxdepth: 2
 
    installation.rst
-   usage.rst
-   hdf5_tutorial.rst
-
-.. toctree::
-   :caption: API REFERENCE
-   :maxdepth: 2
-
-   api/hdf5_file.rst
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
