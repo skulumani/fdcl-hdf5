@@ -1,0 +1,7 @@
+name: fdcl-hdf5-docs
+
+channels:
+  - conda-forge
+
+dependencies:
+  - breathe
