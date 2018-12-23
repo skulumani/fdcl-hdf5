@@ -5,6 +5,9 @@ This library serves as an interface wrapper for using the HDF5 library with Eige
 As a result, all Eigen Matrix types are able to be written to HDF5 objects and subsequently read back. 
 In addition, all HDF5 structures, such as files, groups, and datasets are compatible with Eigen data types. 
 
+Dependencies
+==============
+
 This library depends on the following:
 
 1. `Eigen`_ - A C++ template library for linear algebra.
@@ -14,3 +17,12 @@ This library depends on the following:
 :: _Eigen: http://eigen.tuxfamily.org/index.php?title=Main_Page 
 :: _HDF5: https://www.hdfgroup.org/solutions/hdf5/
 :: CMake: https://cmake.org/
+
+Build Scripts
+===================
+
+Several ``bash`` scripts are available which simplify the dependency installtion process. 
+Usage of these scripts is not required if the dependencies are already installed or managed seperately.
+
+Build and Installation
+========================
