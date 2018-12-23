@@ -14,9 +14,9 @@ This library depends on the following:
 2. `HDF5`_ - A file format to store and organize large amounts of data.
 3. `CMake`_ - A cross-platform build tool.
 
-:: _Eigen: http://eigen.tuxfamily.org/index.php?title=Main_Page 
-:: _HDF5: https://www.hdfgroup.org/solutions/hdf5/
-:: CMake: https://cmake.org/
+.. _Eigen: http://eigen.tuxfamily.org/index.php?title=Main_Page 
+.. _HDF5: https://www.hdfgroup.org/solutions/hdf5/
+.. _CMake: https://cmake.org/
 
 Build Scripts
 ===================
