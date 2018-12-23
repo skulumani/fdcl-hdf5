@@ -18,7 +18,7 @@ Welcome to the documentation!
    :caption: API REFERENCE
    :maxdepth: 2
 
-	api/hdf5_file.rst
+    api/hdf5_file.rst
 
 
 
