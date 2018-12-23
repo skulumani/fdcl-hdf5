@@ -19,6 +19,9 @@ Welcome to the documentation!
    :maxdepth: 2
 
    api/hdf5_file.rst
+   api/hdf5_group.rst
+   api/hdf5_dataset.rst
+   api/hdf5_eigen.rst
 
 
 
