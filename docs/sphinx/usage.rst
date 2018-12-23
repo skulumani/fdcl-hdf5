@@ -1,4 +1,4 @@
-HDF5 Wrapper
+Basic Usage
 =========================
 
 This file is a convinient header to include all of the HDF5 Eigen functionality into your program. 

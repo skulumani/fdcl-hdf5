@@ -11,12 +11,14 @@ Welcome to the documentation!
    :maxdepth: 1
 
    installation.rst
+   usage.rst
 
 .. toctree::
    :caption: API REFERENCE
    :maxdepth: 2
 
-   api/hdf5.rst
+	api/hdf5_file.rst
+
 
 
 Indices and tables
