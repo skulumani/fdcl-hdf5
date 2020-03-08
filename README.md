@@ -128,7 +128,7 @@ hf.write("dataset_name", matrix);
 This library depends on both `Eigen` and `HDF5` which can be installed using the included scripts.
 
 1. [`build_eigen.sh`]( ./scripts/buid_eigen.sh ) - Install `Eigen` to `/usr/local`
-2. [`build_hdf5.sh`]( ./scripts/build_hdf5.sh ) - Build and install `HDF5`
+2. [`build_hdf5.sh`]( ./scripts/build_hdf5.sh ) - Build and install `HDF5` or can use `sudo apt-get install libhdf5-dev` for Ubuntu and `brew install hdf5` for mac
 3. [`build_cmake.sh`](./scripts/build_cmake.sh) = Build `cmake` from source
 
 From the source directory:
