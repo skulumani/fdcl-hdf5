@@ -273,7 +273,7 @@ TEST(TestFDCLUAVDataSet, Eigen4by1) {
 TEST(TestFileSizes, EigenFloatDynamicby11) {
 
     HDF5::File hf_file("/tmp/test.hdf5", HDF5::File::Truncate);
-    Eigen::Matrix<float, -1, 11> mat, mat_read
+    Eigen::Matrix<float, -1, 11> mat, mat_read;
     mat = Eigen::MatrixXf::Random(100, 11);
     hf_file.write("matrix", mat);
     hf_file.read("matrix", mat_read);
