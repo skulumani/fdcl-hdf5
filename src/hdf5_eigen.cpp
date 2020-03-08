@@ -293,6 +293,8 @@ template void save<Eigen::Matrix<int, 3, 3> >(H5::H5Location& h5group, const std
 
 template void save<Eigen::Matrix<double, 4, 1> >(H5::H5Location& h5group, const std::string &name, const Eigen::EigenBase<Eigen::Matrix<double, 4, 1> > &mat, const H5::DSetCreatPropList &plist);
 
+template void save<Eigen::Matrix<float, -1, 11> >(H5::H5Location& h5group, const std::string &name, const Eigen::EigenBase<Eigen::Matrix<float, -1, 11> > &mat, const H5::DSetCreatPropList &plist);
+
 // Explicit template specialization
 template H5::DataSpace internal::create_dataspace<Eigen::VectorXd>(const Eigen::EigenBase<Eigen::VectorXd>&);
 template H5::DataSpace internal::create_dataspace<Eigen::VectorXi>(const Eigen::EigenBase<Eigen::VectorXi>&);
